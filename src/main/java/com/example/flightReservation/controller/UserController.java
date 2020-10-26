@@ -2,15 +2,12 @@ package com.example.flightReservation.controller;
 
 import com.example.flightReservation.repository.UserRepository;
 import com.example.flightReservation.entity.User;
-import com.example.flightReservation.service.SecurityService;
+//import com.example.flightReservation.service.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UserController {
@@ -18,44 +15,59 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    // @Autowired
+    //private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Autowired
-    SecurityService securityService;
+    // @Autowired
+    // SecurityService securityService;
 
     //Method to direct you to the register user page
-    @RequestMapping("/registerUser")
-    public String showRegistration(){
-        return "login/registerUser";
-    }
+//    @RequestMapping("/registerUser")
+//    public String showRegistration() {
+//        return "login/registerUser";
+//    }
 
     //directs to the login page
     @RequestMapping("/loginUser")
-    public String showLogin(){
+    public String showLogin() {
         return "login/login";
     }
 
     //saving the User
-    @RequestMapping("register-user")
-    public String register(@ModelAttribute User user){
+    @RequestMapping("/registerUser")
+    public String register(@ModelAttribute User user) {
         //user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-       user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        //user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         return "login/login";
     }
 
 
     //Authenticating User login
-    @PostMapping("login-user")
+  //  @PostMapping("login-user")
+ //   public String login(@RequestParam("email") String email, @RequestParam("password") String password, ModelMap modelMap) {
+//        Boolean userExist = securityService.login(email,password);
+//        if(userExist){
+//            return "findFlights";
+//        }
+//        else{
+//            modelMap.addAttribute("msg","Invalid credentials");
+//        }
+//        return "login/login";
+   // }
+
+
+
+    @RequestMapping(value="/login", method= RequestMethod.POST)
     public String login(@RequestParam("email") String email, @RequestParam("password") String password, ModelMap modelMap){
-        Boolean userExist = securityService.login(email,password);
-        if(userExist){
+        User user= userRepository.findByEmail(email);
+        if(user.getEmail().equals(email) && user.getPassword().equals(password)) {
             return "findFlights";
         }
-        else{
-            modelMap.addAttribute("msg","Invalid credentials");
+        else {
+            modelMap.addAttribute("msg","Invalid Username or password.. Please try again");
         }
-        return "login/login";
+        return "login";
     }
+
 }

@@ -8,9 +8,13 @@ public class Reservation extends AbstractEntity {
     private Boolean checkedIn;
     private Integer numberOfBags;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name="passenger.id",insertable=false, updatable = false)
     private Passenger passenger;
-    @OneToOne
+
+
+    @ManyToOne
+    @JoinColumn(name="flight.id",insertable=false, updatable = false)
     private Flight flight;
 
     public Reservation() {

@@ -1,7 +1,11 @@
 package com.example.flightReservation.entity;
 import com.example.flightReservation.entity.common.AbstractEntity;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Passenger extends AbstractEntity {
@@ -11,8 +15,15 @@ public class Passenger extends AbstractEntity {
     private String email;
     private String phone;
 
-    public Passenger() {
-    }
+
+
+//
+//    @OneToMany(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "id", nullable = false)
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//    private Reservation reservation;
+
+
 
     public String getFirstName() {
         return firstName;
@@ -65,3 +76,42 @@ public class Passenger extends AbstractEntity {
                 '}';
     }
 }
+
+//
+//Example 1: One-to-Many association using generics
+//
+//// In Customer class:
+//
+//@OneToMany(cascade=ALL, mappedBy="customer")
+//public Set<Order> getOrders() { return orders; }
+//
+//        In Order class:
+//
+//@ManyToOne
+//@JoinColumn(name="CUST_ID", nullable=false)
+//public Customer getCustomer() { return customer; }
+//
+//
+//        Example 2: One-to-Many association without using generics
+//
+//// In Customer class:
+//
+//@OneToMany(targetEntity=com.acme.Order.class, cascade=ALL,
+//        mappedBy="customer")
+//public Set getOrders() { return orders; }
+//
+//// In Order class:
+//
+//@ManyToOne
+//@JoinColumn(name="CUST_ID", nullable=false)
+//public Customer getCustomer() { return customer; }
+//
+//
+//        Example 3: Unidirectional One-to-Many association using a foreign key mapping
+//
+//// In Customer class:
+//
+//@OneToMany(orphanRemoval=true)
+//@JoinColumn(name="CUST_ID") // join column is in table for Order
+//public Set<Order> getOrders() {return orders;}
+//

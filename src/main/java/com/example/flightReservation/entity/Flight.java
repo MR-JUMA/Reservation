@@ -7,7 +7,6 @@ import java.util.Date;
 @Entity
 public class Flight extends AbstractEntity {
     private String flightNumber;
-    private String operatingAirlines;
     private String departureCity;
     private String arrivalCity;
     //@Temporal(TemporalType.DATE)
@@ -35,13 +34,6 @@ public class Flight extends AbstractEntity {
         this.flightNumber = flightNumber;
     }
 
-    public String getOperatingAirlines() {
-        return operatingAirlines;
-    }
-
-    public void setOperatingAirlines(String operatingAirlines) {
-        this.operatingAirlines = operatingAirlines;
-    }
 
     public String getDepartureCity() {
         return departureCity;

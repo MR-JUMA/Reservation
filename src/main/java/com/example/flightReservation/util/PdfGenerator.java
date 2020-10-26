@@ -41,8 +41,7 @@ public class PdfGenerator  {
 
         //adding flight details
 
-        table.addCell("Airline");
-        table.addCell(reservation.getFlight().getOperatingAirlines());
+
 
         table.addCell("Departure city");
         table.addCell(reservation.getFlight().getDepartureCity());
