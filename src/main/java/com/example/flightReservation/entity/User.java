@@ -59,8 +59,8 @@ public class User extends AbstractEntity {
         this.middleName = middleName;
     }
 
-    public String getGender() {
-        return gender;
+    public String getGender(String gender) {
+        return this.gender;
     }
 
     public void setGender(String gender) {

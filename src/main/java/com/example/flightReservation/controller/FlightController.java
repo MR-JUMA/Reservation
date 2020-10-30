@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 //import java.sql.Time;
+import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 
@@ -20,23 +21,25 @@ public class FlightController {
     @Autowired
     FlightRepository flightRepository;
 
-    @RequestMapping(value ="/flights", method = RequestMethod.POST)
-    public String findFlights(@RequestParam("from") String from,@RequestParam("to") String to, @RequestParam("dateOfDeparture") @DateTimeFormat(pattern="yyyy-MM-dd")Date dateOfDeparture, @RequestParam("dateOfReturn") @DateTimeFormat(pattern="yyyy-MM-dd") Date dateOfReturn,Model model){
+    @RequestMapping("/xyz")
+    public String findFlights(@RequestParam("departureCity") String departureCity, @RequestParam("departureCity") String arrivalCity, @RequestParam("dateOfDeparture") @DateTimeFormat(pattern="yyyy-MM-dd")Date dateOfDeparture,
+                              @RequestParam("dateOfReturn") @DateTimeFormat(pattern="yyyy-MM-dd") Date dateOfReturn, @RequestParam("flightNumber")String flightNumber, @RequestParam("price")String price, @RequestParam("estimatedDepartureTime") Time estimatedDepartureTime, Model model){
 
-        List<Flight> flights = flightRepository.findFlights(from, to, dateOfDeparture,dateOfReturn);
+        List<Flight> flights = flightRepository.findFlights(departureCity, arrivalCity, dateOfDeparture,dateOfReturn,flightNumber,price,estimatedDepartureTime);
         model.addAttribute("flights",flights);
         return "displayFlights";
     }
 
     @RequestMapping("/showAddFlight")
     public String showAddFlight(){
-        return "addFlight";
+        return "flight";
     }
 
     @RequestMapping(value ="/addFlight",method = RequestMethod.POST)
     public String addFlight(@ModelAttribute("flight") Flight flight){
+       // flight.setDateOfDeparture(dateOfDeparture.toString());
         flightRepository.save(flight);
-        return "displayFlights";
+        return "flight";
     }
 
 

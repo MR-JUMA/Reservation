@@ -30,16 +30,19 @@ public class UserController {
     //directs to the login page
     @RequestMapping("/loginUser")
     public String showLogin() {
-        return "login/login";
+        return "login";
     }
 
     //saving the User
     @RequestMapping("/registerUser")
-    public String register(@ModelAttribute User user) {
+    public String register(@ModelAttribute User user,@RequestParam("lastName") String lastName,@RequestParam("gender")String gender) {
         //user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         //user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setPassword(lastName.toUpperCase());
+        user.getGender(gender);
         userRepository.save(user);
-        return "login/login";
+
+        return "forms";
     }
 
 
@@ -62,7 +65,7 @@ public class UserController {
     public String login(@RequestParam("email") String email, @RequestParam("password") String password, ModelMap modelMap){
         User user= userRepository.findByEmail(email);
         if(user.getEmail().equals(email) && user.getPassword().equals(password)) {
-            return "findFlights";
+            return "index";
         }
         else {
             modelMap.addAttribute("msg","Invalid Username or password.. Please try again");

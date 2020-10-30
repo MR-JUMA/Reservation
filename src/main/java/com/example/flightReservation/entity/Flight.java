@@ -1,23 +1,36 @@
 package com.example.flightReservation.entity;
 import com.example.flightReservation.entity.common.AbstractEntity;
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 import java.sql.Time;
 import java.util.Date;
 
 @Entity
 public class Flight extends AbstractEntity {
+    @NotNull
     private String flightNumber;
     private String departureCity;
     private String arrivalCity;
+    private String price;
     //@Temporal(TemporalType.DATE)
     private Date dateOfDeparture;
-   // @Temporal(TemporalType.DATE)
+    //@Temporal(TemporalType.DATE)
     private Date dateOfReturn;
     private Time estimatedDepartureTime;
 
     public Flight() {
 
     }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
     public Date getDateOfReturn() {
         return dateOfReturn;
     }
