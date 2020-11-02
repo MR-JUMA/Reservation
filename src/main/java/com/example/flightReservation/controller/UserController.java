@@ -9,6 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class UserController {
 
@@ -22,10 +24,12 @@ public class UserController {
     // SecurityService securityService;
 
     //Method to direct you to the register user page
-//    @RequestMapping("/registerUser")
-//    public String showRegistration() {
-//        return "login/registerUser";
-//    }
+    @RequestMapping("/viewUser")
+    public String viewUsers(ModelMap modelMap) {
+        List<User> userList=userRepository.findAll();
+        modelMap.addAttribute("users",userList);
+        return "viewUser";
+    }
 
     //directs to the login page
     @RequestMapping("/loginUser")
@@ -42,7 +46,7 @@ public class UserController {
         user.getGender(gender);
         userRepository.save(user);
 
-        return "forms";
+        return "addUser";
     }
 
 

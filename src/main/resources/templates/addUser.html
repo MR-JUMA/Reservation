@@ -34,7 +34,7 @@
     </head>
     <body>
 
-        < id="wrapper">
+        <div id="wrapper">
 
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -138,16 +138,16 @@
                                 <a href="/showAddFlight"><i class="fa fa-plane fa-fw"></i>Add Flight</a>
                             </li>
                             <li>
-                                <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                                <a href="/viewFlight"><i class="fa fa-street-view fa-fw"></i> View Flights</a>
+                            </li>
+                            <li>
+                                <a href="/viewUser"><i class="fa fa-users fa-fw"></i> View Users</a>
                             </li>
                             <li>
                                 <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
                             </li>
                             <li>
-                                <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
-                            </li>
-                            <li>
-                                <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                                <a href="/logout"><i class="fa fa-eject fa-fw"></i> Logout</a>
                             </li>
                         </ul>
                     </div>
@@ -156,7 +156,10 @@
                 <!-- /.navbar-static-side -->
             </nav>
 
-            <div id="page-wrapper">
+
+            <div class="jumbotron">
+
+                <div id="page-wrapper">
                 <div class="container-fluid">
                     <div class="panel panel-default ">
                         <div class="panel-heading">
@@ -212,8 +215,11 @@
                     <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-12 -->
+              </div>
             </div>
             <!-- /.col-lg-6 (nested) -->
+        </div>
+
 
 
         <!-- jQuery -->

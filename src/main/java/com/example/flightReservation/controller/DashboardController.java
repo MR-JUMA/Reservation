@@ -5,18 +5,11 @@ import com.example.flightReservation.repository.FlightRepository;
 import com.example.flightReservation.repository.ReservationRepository;
 import com.example.flightReservation.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import java.sql.Time;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -33,11 +26,11 @@ public class DashboardController {
 
     @GetMapping("/c")
     public String showHomePage(){
-        return "index";
+        return "blank";
     }
     @GetMapping("/forms")
     public String addUser(){
-        return "forms";
+        return "addUser";
     }
 
 
@@ -67,6 +60,11 @@ public class DashboardController {
 //        model.addAttribute("flights",flights);
 //        return "index";
 //    }
+
+    @RequestMapping("/logout")
+    public String exitAcc(){
+        return "login";
+    }
 
 
 }
