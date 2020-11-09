@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,7 +39,7 @@
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">Startmin</a>
+                    <a class="navbar-brand" href="admin.html">Startmin</a>
                 </div>
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -75,25 +75,25 @@
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <li>
-                                <a href="ab"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                                <a th:href="@{/ab}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
                             <li>
-                                <a href="/forms"><i class="fa fa-user-o fa-fw"></i> Add User</a>
+                                <a th:href="@{/forms}"><i class="fa fa-user-o fa-fw"></i> Add User</a>
                             </li>
                             <li>
-                                <a href="/showAddFlight"><i class="fa fa-plane fa-fw"></i>Add Flight</a>
+                                <a th:href="@{/showAddFlight}"><i class="fa fa-plane fa-fw"></i>Add Flight</a>
                             </li>
                             <li>
-                                <a href="/viewFlight"><i class="fa fa-street-view fa-fw"></i> View Flights</a>
+                                <a th:href="@{/viewFlight}"><i class="fa fa-street-view fa-fw"></i> View Flights</a>
                             </li>
                             <li>
-                                <a href="/viewUser"><i class="fa fa-users fa-fw"></i> View Users</a>
+                                <a th:href="@{/viewUser}"><i class="fa fa-users fa-fw"></i> View Users</a>
                             </li>
                             <li>
-                                <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                                <a href="#"><i class="fa fa-table fa-fw"></i> Tables</a>
                             </li>
                             <li>
-                                <a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                                <a th:href="@{/logout}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                             </li>
                         </ul>
                     </div>
@@ -114,18 +114,18 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" action="registerUser" method="post">
+                                    <form role="form" action="#" th:action="@{/registerUser}" method="post" th:object="${user}">
                                         <div class="form-group">
                                             <label>First Name</label>
-                                            <input class="form-control" name="firstName">
+                                            <input class="form-control" name="firstName" type="text">
                                         </div>
                                         <div class="form-group">
                                             <label>Middle Name</label>
-                                            <input class="form-control" name="middleName">
+                                            <input class="form-control" type="text" name="middleName">
                                         </div>
                                         <div class="form-group">
                                             <label>Last Name</label>
-                                            <input class="form-control" name="lastName">
+                                            <input class="form-control" type="text" name="lastName">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleFormControlInput1">Email address</label>

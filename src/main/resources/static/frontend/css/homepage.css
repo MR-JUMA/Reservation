@@ -1,0 +1,20 @@
+#homepage {
+    background-color: #ccccff;
+    width: 800px;
+    font-size: 16px;
+    height: 600px;
+}
+#home {
+    background-color: #efeff5;
+    width: 800px;
+    font-size: 16px;
+    height: 600px;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+h1 {
+    font-weight: bold;
+}

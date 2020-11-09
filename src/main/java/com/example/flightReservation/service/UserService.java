@@ -8,4 +8,5 @@ import java.util.List;
 @Service
 public interface UserService {
     public List<User> getAllUsers();
+    User getUserById(int id);
 }

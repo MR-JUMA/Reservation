@@ -6,6 +6,7 @@ import com.example.flightReservation.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,13 +20,13 @@ public class ReservationController {
     FlightRepository flightRepository;
     @Autowired
     ReservationService reservationService;
-
-    @RequestMapping("/{id}")
-    public String showCompleteReservation(@PathVariable("id") Long id, Model model) {
-        Flight flight = flightRepository.findById(id).                                                                                                                                                                                                                                                                                         get();
-        model.addAttribute("flight", flight);
-        return "completeReservation";
-    }
+//
+//    @RequestMapping("/selectFlight/{id}")
+//    public String showCompleteReservation(@PathVariable("id") Long id, @ModelAttribute("flights")Flight flight, ModelMap modelMap) {
+//        Flight flights = flightRepository.findById(id).get();
+//        modelMap.addAttribute("flights", flights);
+//        return "reservation";
+//    }
 
     @PostMapping("/complete-reservation")
     public String completeReservation(@ModelAttribute ReservationRequest reservationRequest, Model model) {

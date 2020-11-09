@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Booking Form HTML Template</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <!--	<link type="text/css" rel="stylesheet" href="../static/frontend/css/bootstrap.min.css" />-->
+    <link th:href="@{/frontend/css/bootstrap.min.css}" rel="stylesheet" />
+
+    <!-- Custom stlylesheet -->
+    <!--	<link type="text/css" rel="stylesheet" href="../static/frontend/css/style.css" />-->
+    <link th:href="@{/frontend/css/style.css}" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="booking-cta">
+                        <h1>Book your flight today</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate laboriosam numquam at</p>
+                    </div>
+                </div>
+                  <div class="jumbotron col-md-7 col-md-offset-1">
+
+                            <h2>Complete reservation</h2>
+
+                            Airlines: <span th:text="${flights.flightNumber}"></span><br/>
+                            Departure city: <span th:text="${flights.departureCity}"></span><br/>
+                            Arrival city: <span th:text="${flights.arrivalCity}"></span><br/>
+                            Departure date: <span th:text="${flights.dateOfDeparture}"></span><br/>
+                            Departure date: <span th:text="${flights.estimatedDepartureTime}"></span><br/>
+
+                          <form  action="#" th:action="@{/reservation/complete-reservation}" method="post">
+                            <h2>Passenger details</h2>
+                            First Name: <input type="text" name="pFirstName">
+                            Last Name: <input type="text" name="pLastName">
+                            Email: <input type="text" name="pEmail">
+                            Phone: <input type="text" name="pPhone">
+
+                             <h2>Card details</h2>
+                           Name: <input type="text" name="nameOnCard">
+                           Card number: <input type="text" name="cardNumber">
+                           Expiry Date: <input type="date" name="expiryDate">
+                           CVV Code: <input type="password" name="cvvNumber">
+
+                           <input type="hidden" name="flightId" th:value="${flights.id}">
+
+                           <input type="submit" value ="Book">
+                          </form>
+
+                  </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

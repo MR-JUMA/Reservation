@@ -15,4 +15,7 @@ public interface FlightRepository extends JpaRepository<Flight,Long> {
 
     @Query(value = "from Flight where departureCity=:departureCity and arrivalCity=:arrivalCity and dateOfDeparture=:dateOfDeparture and dateOfReturn=:dateOfReturn and flightNumber=:flightNumber and price=:price and estimatedDepartureTime=:estimatedDepartureTime")
     List<Flight> findFlights(@Param("departureCity") String departureCity, @Param("arrivalCity") String arrivalCity, @Param("dateOfDeparture") Date dateOfDeparture,  @Param("dateOfReturn")Date dateOfReturn,@Param("flightNumber")String flightNumber,@Param("price")String price,@Param("estimatedDepartureTime") Time estimatedDepartureTime);
+
+
+
 }

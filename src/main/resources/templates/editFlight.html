@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns = "http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -105,96 +105,85 @@
 
 <div class="jumbotron">
 
-<div id="page-wrapper">
-    <div class="container-fluid">
-        <div class="panel panel-default ">
-            <div class="panel-heading">
-                Basic Form Elements
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <form role="form" th:action="@{/addFlight}" method="post" th:object="${flight}">
-                            <div class="form-group">
-                                <label>Flight Name</label>
-                                <input class="form-control" type="text" name="flightNumber">
-                            </div>
-
-                            <div>
-                                <label>Type:</label>
-                                <select class="custom-select" name="Type">
-                                  <option selected>Open this select menu</option>
-                                   <option value="one way">one way</option>
-                                   <option value="round trip">round trip</option>
-                               </select>
-                            </div>
-
-                            <div>
-                                <label>Class:</label>
-                                    <select class="custom-select" name="PlaneClass">
-                                        <option value="Economy">Economy</option>
-                                        <option value="Business">Business</option>
-                                    </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Departure City</label>
-                                <select class="form-control" id="exampleFormControlSelect1" type="text" name="departureCity">
-                                    <option>select city</option>
-                                    <option>Dar es Salaam</option>
-                                    <option>Mwanza</option>
-                                    <option>Arusha</option>
-                                    <option>Kilimanjaro</option>
-                                    <option>Tanga</option>
-                                    <option>Dodoma</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect2">Arrival City</label>
-                                <select class="form-control" id="exampleFormControlSelect2" type="text" name="arrivalCity">
-                                    <option>select city</option>
-                                    <option>Dar es Salaam</option>
-                                    <option>Mwanza</option>
-                                    <option>Arusha</option>
-                                    <option>Kilimanjaro</option>
-                                    <option>Tanga</option>
-                                    <option>Dodoma</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Price</label>
-                                <input class="form-control" type="text" name="price">
-                            </div>
-                            <div class="form-group">
-                                <label>Departure Date</label>
-                                <input class="form-control" type="date" name="dateOfDeparture">
-                            </div>
-                            <div class="form-group">
-                                <label>Departure Time</label>
-                                <input class="form-control" type="text" name="estimatedDepartureTime">
-                            </div>
-                            <div class="form-group">
-                                <label>Return Date</label>
-                                <input class="form-control" type="date" name="dateOfReturn">
-                            </div>
-
-
-                            <button type="submit" class="btn btn-default">Submit</button>
-                            <button type="reset" class="btn btn-default">Reset </button>
-                        </form>
-                    </div>
-                    <!-- /.col-lg-6 (nested) -->
-                    <div class="col-lg-6">
-                    </div>
-                    <!-- /.col-lg-6 (nested) -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="panel panel-default ">
+                <div class="panel-heading">
+                    Basic Form Elements
                 </div>
-                <!-- /.row (nested) -->
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <form role="form" action="#" th:action="@{/update/{id}(id=${flight.id})}"
+                                  th:object="${flight}" method="post" >
+
+                                <div class="form-group">
+                                    <label>Flight Name</label>
+                                    <input class="form-control" th:field="*{flightNumber}" th:value="${flight.flightNumber}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Departure City</label>
+                                    <select class="form-control" id="exampleFormControlSelect1" th:value="${flight.departureCity}" type="text" name="departureCity">
+                                        <option >select city</option>
+                                        <option>Dar es Salaam</option>
+                                        <option>Mwanza</option>
+                                        <option>Arusha</option>
+                                        <option>Kilimanjaro</option>
+                                        <option>Tanga</option>
+                                        <option>Dodoma</option>
+                                    </select>
+                                </div>
+<!--                                <div class="form-group">-->
+<!--                                    <label>Arrival City</label>-->
+<!--                                    <input class="form-control" th:field="*{arrivalCity}" th:value="${flight.arrivalCity}">-->
+<!--                                </div>-->
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect2">Arrival City</label>
+                                    <select class="form-control" id="exampleFormControlSelect2" th:value="${flight.arrivalCity}" type="text" name="arrivalCity">
+                                        <option >select city</option>
+                                        <option>Dar es Salaam</option>
+                                        <option>Mwanza</option>
+                                        <option>Arusha</option>
+                                        <option>Kilimanjaro</option>
+                                        <option>Tanga</option>
+                                        <option>Dodoma</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Price</label>
+                                    <input class="form-control" th:field="*{price}" th:value="${flight.price}">
+                                </div>
+                                <div class="form-group">
+                                    <label>Departure Date</label>
+                                    <input class="form-control" type="text" th:field="*{dateOfDeparture}" th:value="${flight.dateOfDeparture}">
+                                </div>
+                                <div class="form-group">
+                                    <label>Departure Time</label>
+                                    <input class="form-control" type="text" th:field="*{estimatedDepartureTime}" th:value="${flight.estimatedDepartureTime}">
+                                </div>
+                                <div class="form-group">
+                                    <label>Return Date</label>
+                                    <input class="form-control" type="text" th:field="*{dateOfReturn}" th:value="${flight.dateOfReturn}">
+                                </div>
+
+
+                                <button type="submit" class="btn btn-default">Submit</button>
+                                <button type="reset" class="btn btn-default">Reset </button>
+                            </form>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
             </div>
-            <!-- /.panel-body -->
+            <!-- /.panel -->
         </div>
-        <!-- /.panel -->
     </div>
-</div>
     <!-- /.col-lg-12 -->
 </div>
 <!-- /.col-lg-6 (nested) -->
