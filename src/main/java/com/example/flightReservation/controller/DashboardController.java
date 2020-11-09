@@ -28,10 +28,8 @@ public class DashboardController {
     public String showHomePage(){
         return "blank";
     }
-    @GetMapping("/forms")
-    public String addUser(){
-        return "addUser";
-    }
+
+
 
 
 
@@ -43,7 +41,7 @@ public class DashboardController {
 
         List<Flight> flightList=flightRepository.findAll();
         modelMap.addAttribute("fx",flightList);
-         return "index";
+         return "admin";
     }
 
 //    @RequestMapping("/myFlights")
@@ -66,5 +64,8 @@ public class DashboardController {
         return "login";
     }
 
+//    public String myMethod(){
+//        return null;
+//    }
 
 }

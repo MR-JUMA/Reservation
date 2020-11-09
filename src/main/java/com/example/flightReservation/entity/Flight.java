@@ -1,5 +1,6 @@
 package com.example.flightReservation.entity;
 import com.example.flightReservation.entity.common.AbstractEntity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
@@ -13,11 +14,14 @@ public class Flight extends AbstractEntity {
     private String departureCity;
     private String arrivalCity;
     private String price;
-    //@Temporal(TemporalType.DATE)
-    private Date dateOfDeparture;
-    //@Temporal(TemporalType.DATE)
-    private Date dateOfReturn;
+    @JsonFormat(pattern = "yyyy-MM-dd",shape = JsonFormat.Shape.STRING)
+    private String dateOfDeparture;
+    @JsonFormat(pattern = "yyyy-MM-dd", shape= JsonFormat.Shape.STRING)
+    private String dateOfReturn;
     private Time estimatedDepartureTime;
+
+    private String Type;
+    private String PlaneClass;
 
     public Flight() {
 
@@ -27,15 +31,31 @@ public class Flight extends AbstractEntity {
         return price;
     }
 
+    public String getType() {
+        return Type;
+    }
+
+    public void setType(String type) {
+        Type = type;
+    }
+
+    public String getPlaneClass() {
+        return PlaneClass;
+    }
+
+    public void setPlaneClass(String planeClass) {
+        PlaneClass = planeClass;
+    }
+
     public void setPrice(String price) {
         this.price = price;
     }
 
-    public Date getDateOfReturn() {
+    public String getDateOfReturn() {
         return dateOfReturn;
     }
 
-    public void setDateOfReturn(Date dateOfReturn) {
+    public void setDateOfReturn(String dateOfReturn) {
         this.dateOfReturn = dateOfReturn;
     }
 
@@ -64,11 +84,11 @@ public class Flight extends AbstractEntity {
         this.arrivalCity = arrivalCity;
     }
 
-    public Date getDateOfDeparture() {
+    public String getDateOfDeparture() {
         return dateOfDeparture;
     }
 
-    public void setDateOfDeparture(Date dateOfDeparture) {
+    public void setDateOfDeparture(String dateOfDeparture) {
         this.dateOfDeparture = dateOfDeparture;
     }
 

@@ -83,26 +83,26 @@
                     <ul class="nav" id="side-menu">
 
                         <li>
-                            <a href="ab" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a th:href="@{/ab}" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
 
                         <li>
-                            <a href="forms"><i class="fa fa-user-o fa-fw"></i> Add User</a>
+                            <a th:href="@{/forms}"><i class="fa fa-user-o fa-fw"></i> Add User</a>
                         </li>
                         <li>
-                            <a href="/showAddFlight"><i class="fa fa-plane fa-fw"></i> Add Flight</a>
+                            <a th:href="@{/showAddFlight}"><i class="fa fa-plane fa-fw"></i> Add Flight</a>
                         </li>
                         <li>
-                            <a href="/viewFlight"><i class="fa fa-street-view fa-fw"></i> View Flights</a>
+                            <a th:href="@{/viewFlight}"><i class="fa fa-street-view fa-fw"></i> View Flights</a>
                         </li>
                         <li>
-                            <a href="/viewUser"><i class="fa fa-users fa-fw"></i> View Users</a>
+                            <a th:href="@{/viewUser}"><i class="fa fa-users fa-fw"></i> View Users</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-table fa-fw"></i> Tables</a>
                         </li>
                         <li>
-                            <a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <a th:href="@{/logout}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -150,7 +150,7 @@
                                         <i class="fa fa-plane fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"th:text="${flights}"></div>
+                                        <div class="huge" th:text="${flights}"></div>
                                         <div>Flights Available</div>
                                     </div>
                                 </div>
@@ -173,7 +173,7 @@
                                         <i class="fa fa-archive fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge"th:text="${reserves}"></div>
+                                        <div class="huge" th:text="${reserves}"></div>
                                         <div>Reservations</div>
                                     </div>
                                 </div>
