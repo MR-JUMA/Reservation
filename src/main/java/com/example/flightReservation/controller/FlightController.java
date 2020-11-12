@@ -3,6 +3,7 @@ import com.example.flightReservation.repository.FlightRepository;
 import com.example.flightReservation.entity.Flight;
 import com.example.flightReservation.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 //import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -30,6 +32,7 @@ public class FlightController {
         model.addAttribute("flights",flights);
         return "viewFlights";
     }
+
 
     @RequestMapping("/showAddFlight")
     public String showAddFlight(){

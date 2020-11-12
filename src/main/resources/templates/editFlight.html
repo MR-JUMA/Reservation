@@ -119,13 +119,20 @@
 
                                 <div class="form-group">
                                     <label>Flight Name</label>
-                                    <input class="form-control" th:field="*{flightNumber}" th:value="${flight.flightNumber}">
+                                    <select class="form-control"  id="exampleFormControlSelect3" type="text" name="flightNumber"  required>
+                                        <option th:text="${flight.getFlightNumber()}" disabled selected hidden>select plane</option>
+                                        <option >BOYEING766</option>
+                                        <option >ABC123</option>
+                                        <option >KILI33</option>
+                                        <option >KAZI AIR</option>
+                                    </select>
                                 </div>
+                                <br>
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Departure City</label>
-                                    <select class="form-control" id="exampleFormControlSelect1" th:value="${flight.departureCity}" type="text" name="departureCity">
-                                        <option >select city</option>
-                                        <option>Dar es Salaam</option>
+                                    <select class="form-control"  id="exampleFormControlSelect1" type="text" name="departureCity"  required>
+                                        <option th:text="${flight.getDepartureCity()}" disabled selected hidden>select city</option>
+                                        <option >Dar es Salaam</option>
                                         <option>Mwanza</option>
                                         <option>Arusha</option>
                                         <option>Kilimanjaro</option>
@@ -133,14 +140,10 @@
                                         <option>Dodoma</option>
                                     </select>
                                 </div>
-<!--                                <div class="form-group">-->
-<!--                                    <label>Arrival City</label>-->
-<!--                                    <input class="form-control" th:field="*{arrivalCity}" th:value="${flight.arrivalCity}">-->
-<!--                                </div>-->
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect2">Arrival City</label>
-                                    <select class="form-control" id="exampleFormControlSelect2" th:value="${flight.arrivalCity}" type="text" name="arrivalCity">
-                                        <option >select city</option>
+                                    <select class="form-control" id="exampleFormControlSelect2" type="text" name="arrivalCity"  required>
+                                        <option th:text="${flight.getArrivalCity()}" disabled selected hidden>select city</option>
                                         <option>Dar es Salaam</option>
                                         <option>Mwanza</option>
                                         <option>Arusha</option>
@@ -150,26 +153,47 @@
                                     </select>
                                 </div>
 
+                                <div>
+                                    <label>Type:</label>
+                                    <select class="custom-select" name="Type"  required>
+                                        <option th:text="${flight.getType()}" disabled selected hidden>Select Route Type</option>
+                                        <option value="one way">one way</option>
+                                        <option value="round trip">round trip</option>
+                                    </select>
+                                </div>
+                                <br>
+
+                                <div>
+                                    <label>Class:</label>
+                                    <select class="custom-select" name="PlaneClass"   required>
+                                        <option th:text="${flight.getPlaneClass()}" disabled selected hidden ></option>
+                                        <option value="Economy">Economy</option>
+                                        <option value="Business">Business</option>
+                                    </select>
+                                </div>
+                                <br>
                                 <div class="form-group">
                                     <label>Price</label>
-                                    <input class="form-control" th:field="*{price}" th:value="${flight.price}">
+                                    <input class="form-control" th:field="*{price}" th:value="${flight.getPrice()}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Departure Date</label>
-                                    <input class="form-control" type="text" th:field="*{dateOfDeparture}" th:value="${flight.dateOfDeparture}">
+                                    <input class="form-control" type="text" th:field="*{dateOfDeparture}" th:value="${flight.getDateOfDeparture()}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Departure Time</label>
-                                    <input class="form-control" type="text" th:field="*{estimatedDepartureTime}" th:value="${flight.estimatedDepartureTime}">
+                                    <input class="form-control" type="text" th:field="*{estimatedDepartureTime}" th:value="${flight.getEstimatedDepartureTime()}" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Return Date</label>
-                                    <input class="form-control" type="text" th:field="*{dateOfReturn}" th:value="${flight.dateOfReturn}">
+                                    <input class="form-control" type="text" th:field="*{dateOfReturn}" th:value="${flight.getDateOfReturn()}" >
                                 </div>
 
 
-                                <button type="submit" class="btn btn-default">Submit</button>
+                                <button type="submit" class="btn btn-success">Submit</button>
                                 <button type="reset" class="btn btn-default">Reset </button>
+                                <a class="btn btn-danger" th:href="@{/viewFlight}" role="button">Cancel</a>
+
                             </form>
                         </div>
                         <!-- /.col-lg-6 (nested) -->

@@ -95,29 +95,49 @@
 					</div>
 					<hr />
 					<div id="oneway">
-						<form role="form" action="#" method="post">
+						<form role="form" action="#" th:action="@{/checkOneWayFlights}" method="post">
 							<div class="row">
 								<div class="col-sm-6">
-									<label for="from">From:</label>
-									<input type="text" class="form-control"  name="from" placeholder="City or Code" required>
+									<div class="form-group">
+										<label for="exampleFormControlSelect1">Departure City</label>
+										<select class="form-control"  id="exampleFormControlSelect1" type="text" name="departureCity" required>
+											<option value="" disabled selected hidden>select city</option>
+											<option>Dar es Salaam</option>
+											<option>Mwanza</option>
+											<option>Arusha</option>
+											<option>Kilimanjaro</option>
+											<option>Tanga</option>
+											<option>Dodoma</option>
+										</select>
+									</div>
 								</div>
 								<div class="col-sm-6">
-									<label for="to">To:</label>
-									<input type="text" class="form-control"  name="to" placeholder="City or Code" required>
+									<div class="form-group">
+										<label for="exampleFormControlSelect2">Arrival City</label>
+										<select class="form-control" id="exampleFormControlSelect4" type="text" name="arrivalCity" required>
+											<option value="" disabled selected hidden>select city</option>                                    <option>Dar es Salaam</option>
+											<option>Mwanza</option>
+											<option>Arusha</option>
+											<option>Kilimanjaro</option>
+											<option>Tanga</option>
+											<option>Dodoma</option>
+										</select>
+									</div>
 								</div>
 							</div>
 							<hr >
 							<div class="row">
 								<div class="col-sm-6">
 									<label for="depart">Depart:</label>
-									<input type="date" class="form-control"  name="depart" required>
+									<input type="date" class="form-control"  name="dateOfDeparture" required>
 								</div>
 							</div>
 							<div class="row">
 								<hr >
 								<div class="col-sm-6">
 									<label>Class:</label>
-									<select class="form-control" name="class">
+									<select class="custom-select" name="PlaneClass" required>
+										<option value="" disabled selected hidden>Select Class</option>
 										<option value="Economy">Economy</option>
 										<option value="Business">Business</option>
 									</select>
@@ -140,44 +160,60 @@
 
 
 					<div id="roundtrip">
-						<form role="form" action="SearchResultRoundtrip.php" method="post">
+						<form role="form" action="#" th:action="@{/checkRoundFlights}" method="post">
 							<div class="row">
 								<div class="col-sm-6">
-									<label for="from">From:</label>
-									<input type="text" class="form-control" id="from" name="from" placeholder="Code " required>
+									<div class="form-group">
+										<label for="exampleFormControlSelect1">Departure City</label>
+										<select class="form-control"  id="exampleFormControlSelect2" type="text" name="departureCity" required>
+											<option value="" disabled selected hidden>select city</option>
+											<option>Dar es Salaam</option>
+											<option>Mwanza</option>
+											<option>Arusha</option>
+											<option>Kilimanjaro</option>
+											<option>Tanga</option>
+											<option>Dodoma</option>
+										</select>
+									</div>
 								</div>
 								<div class="col-sm-6">
-									<label for="to">To:</label>
-									<input type="text" class="form-control" id="to" name="to" placeholder="Code" required>
+									<div class="form-group">
+										<label for="exampleFormControlSelect2">Arrival City</label>
+										<select class="form-control" id="exampleFormControlSelect3" type="text" name="arrivalCity" required>
+											<option value="" disabled selected hidden>select city</option>                                    <option>Dar es Salaam</option>
+											<option>Mwanza</option>
+											<option>Arusha</option>
+											<option>Kilimanjaro</option>
+											<option>Tanga</option>
+											<option>Dodoma</option>
+										</select>
+									</div>
 								</div>
 							</div>
 							<hr >
 							<div class="row">
 								<div class="col-sm-6">
 									<label for="depart">Depart:</label>
-									<input type="date" class="form-control" id="depart" name="depart" required>
+									<input type="date" class="form-control" id="depart" name="dateOfDeparture" required>
 								</div>
 								<div class="col-sm-6">
 									<label for="return">Return:</label>
-									<input type="date" class="form-control" id="return" name="return" required>
+									<input type="date" class="form-control" id="return" name="dateOfReturn" required>
 								</div>
 							</div>
 							<hr >
 							<div class="row">
 								<div class="col-sm-6">
 									<label>Class:</label>
-									<select class="form-control" name="class">
+									<select class="custom-select" name="PlaneClass" required>
+										<option value="" disabled selected hidden>Select Class</option>
 										<option value="Economy">Economy</option>
 										<option value="Business">Business</option>
 									</select>
 								</div>
 							</div>
 							<br>
-							<div class="form-group">
-								<label class="radio-inline">
-									<input type="radio" name="stop" value="nonstop" checked>Non-Stop
-								</label>
-							</div>
+
 							<div class="btn-group btn-group-justified">
 								<div class="btn-group">
 									<button type="submit" class="btn btn-success">Submit</button>

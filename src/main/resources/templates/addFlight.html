@@ -117,29 +117,38 @@
                         <form role="form" th:action="@{/addFlight}" method="post" th:object="${flight}">
                             <div class="form-group">
                                 <label>Flight Name</label>
-                                <input class="form-control" type="text" name="flightNumber">
+                                <select class="form-control"  id="exampleFormControlSelect3" type="text" name="flightNumber" required>
+                                    <option value="" disabled selected hidden>select plane</option>
+                                    <option>BOYEING766</option>
+                                    <option>ABC123</option>
+                                    <option>KILI33</option>
+                                    <option>KAZI AIR</option>
+                                </select>
                             </div>
 
                             <div>
                                 <label>Type:</label>
-                                <select class="custom-select" name="Type">
-                                  <option selected>Open this select menu</option>
+                                <select class="custom-select" name="Type" required>
+                                   <option value="" disabled selected hidden>Select Route Type</option>
                                    <option value="one way">one way</option>
                                    <option value="round trip">round trip</option>
                                </select>
                             </div>
+                            <br>
 
                             <div>
                                 <label>Class:</label>
-                                    <select class="custom-select" name="PlaneClass">
+                                    <select class="custom-select" name="PlaneClass" required>
+                                        <option value="" disabled selected hidden>Select Class</option>
                                         <option value="Economy">Economy</option>
                                         <option value="Business">Business</option>
                                     </select>
                             </div>
+                            <br>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Departure City</label>
-                                <select class="form-control" id="exampleFormControlSelect1" type="text" name="departureCity">
-                                    <option>select city</option>
+                                <select class="form-control"  id="exampleFormControlSelect1" type="text" name="departureCity" required>
+                                    <option value="" disabled selected hidden>select city</option>
                                     <option>Dar es Salaam</option>
                                     <option>Mwanza</option>
                                     <option>Arusha</option>
@@ -150,9 +159,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect2">Arrival City</label>
-                                <select class="form-control" id="exampleFormControlSelect2" type="text" name="arrivalCity">
-                                    <option>select city</option>
-                                    <option>Dar es Salaam</option>
+                                <select class="form-control" id="exampleFormControlSelect2" type="text" name="arrivalCity" required>
+                                    <option value="" disabled selected hidden>select city</option>                                    <option>Dar es Salaam</option>
                                     <option>Mwanza</option>
                                     <option>Arusha</option>
                                     <option>Kilimanjaro</option>
@@ -163,15 +171,15 @@
 
                             <div class="form-group">
                                 <label>Price</label>
-                                <input class="form-control" type="text" name="price">
+                                <input class="form-control" type="text" name="price" required>
                             </div>
                             <div class="form-group">
                                 <label>Departure Date</label>
-                                <input class="form-control" type="date" name="dateOfDeparture">
+                                <input class="form-control" type="date" name="dateOfDeparture" required>
                             </div>
                             <div class="form-group">
                                 <label>Departure Time</label>
-                                <input class="form-control" type="text" name="estimatedDepartureTime">
+                                <input class="form-control" type="text" name="estimatedDepartureTime" required>
                             </div>
                             <div class="form-group">
                                 <label>Return Date</label>

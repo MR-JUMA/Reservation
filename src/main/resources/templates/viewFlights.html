@@ -128,15 +128,27 @@
                                         <th>To</th>
                                         <th>Departure Date</th>
                                         <th>Departure Time</th>
+                                        <th>Return Date</th>
+                                        <th>Class</th>
+                                        <th>Type</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+
+
+
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr th:each="flight:${flights}">
-                                        <td th:text="${flight.flightNumber}"></td>
-                                        <td th:text="${flight.departureCity}"></td>
-                                        <td th:text="${flight.arrivalCity}"></td>
-                                        <td th:text="${flight.dateOfDeparture}"></td>
-                                        <td th:text="${flight.estimatedDepartureTime}"></td>
+                                        <td th:text="${flight.getFlightNumber()}"></td>
+                                        <td th:text="${flight.getDepartureCity()}"></td>
+                                        <td th:text="${flight.getArrivalCity()}"></td>
+                                        <td th:text="${flight.getDateOfDeparture()}"></td>
+                                        <td th:text="${flight.getEstimatedDepartureTime()}"></td>
+                                        <td th:text="${flight.getDateOfReturn()}"></td>
+                                        <td th:text="${flight.getPlaneClass()}"></td>
+                                        <td th:text="${flight.getType()}"></td>
+
                                         <td><a th:href="@{/edit/{id}(id=${flight.id})}"><i class="fa fa-edit"></i></a></td>
                                        <td> <a th:href="@{/delete/{id}(id=${flight.id})}"><i class="fa fa-trash"></i></i></a></td>
                                     </tr>

@@ -5,6 +5,7 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity

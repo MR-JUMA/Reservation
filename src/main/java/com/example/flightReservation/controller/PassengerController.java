@@ -3,6 +3,7 @@ package com.example.flightReservation.controller;
 import com.example.flightReservation.entity.Flight;
 import com.example.flightReservation.repository.FlightRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -22,12 +23,26 @@ public class PassengerController {
         return "index";
     }
 
-    @RequestMapping("/checkFlights")
-    public String checkFlights(ModelMap modelMap){
-        List<Flight> flight = flightRepository.findAll();
-        modelMap.addAttribute("flight",flight);
-        return "displayFlights";
+    @RequestMapping("/checkRoundFlights")
+    public String checkRoundFlights(String dateOfDeparture,String dateOfReturn,String PlaneClass,ModelMap modelMap){
+        List<Flight> roundFlights = flightRepository.findRoundFlights(dateOfDeparture,dateOfReturn);
+        modelMap.addAttribute("roundFlights",roundFlights);
+        return "displayRoundFlights";
     }
+    @RequestMapping("/checkOneWayFlights")
+    public String checkOneWayFlights(@Param("dateOfDeparture")String dateOfDeparture,ModelMap modelMap){
+        List<Flight> oneWay=flightRepository.getFlightByDate(dateOfDeparture);
+        modelMap.addAttribute("oneWay",oneWay);
+        return "displayOneWayFlights";
+    }
+
+@RequestMapping("/checkFlights")
+public String getFlightByDate(@Param("dateOfDeparture")String dateOfDeparture, ModelMap modelMap){
+    List<Flight> f=flightRepository.getFlightByDate(dateOfDeparture);
+    modelMap.addAttribute("juma",f);
+    return "displayFlights";
+
+}
 
 
     @RequestMapping("/selectFlight/{id}")

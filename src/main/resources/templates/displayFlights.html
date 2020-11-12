@@ -19,6 +19,11 @@
 
     <link th:href="@{/frontend/css/search.css}" rel="stylesheet" />
 
+<!--    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">-->
+<!--    <link th:href="@{/css/metisMenu.min.css}" rel="stylesheet">-->
+<!--    <link th:href="@{/css/timeline.css}" rel="stylesheet">-->
+<!--    <link th:href="@{/css/startmin.css}" rel="stylesheet">-->
+
 
     <script type="text/javascript" th:src="@{/frontend/js/jump.js}"></script>
 
@@ -80,38 +85,70 @@
             <h1>Airprice.com</h1>
             <p>We specialize in your air plan!</p>
         </div>
-
-
-<!--    <div class="container-fluid text-center">-->
-        <div class="container-fluid"  id="home">
-            <div class="col-md-8   ">
-                <h1>Search Result</h1>
-                <div class="table-responsive">
-                    <table class="table table-bordered table-hover table-striped">
-                        <thead>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
                             <tr>
                                 <th>Flight Name</th>
                                 <th>From</th>
                                 <th>To</th>
                                 <th>Departure Date</th>
                                 <th>Departure Time</th>
+                                <th>Class</th>
+
+
+
                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr th:each="flights:${flight}">
-                                <td th:text="${flights.flightNumber}"></td>
-                                <td th:text="${flights.departureCity}"></td>
-                                <td th:text="${flights.arrivalCity}"></td>
-                                <td th:text="${flights.dateOfDeparture}"></td>
-                                <td th:text="${flights.estimatedDepartureTime}"></td>
-                               <td><button type="submit" class="btn btn-primary" ><a  th:href="@{/selectFlight/{id}(id=${flights.id})}">Select</a></button></td>
+                            </thead>
+                            <tbody>
+                            <tr th:each="jumas:${juma}">
+
+                                <td th:text="${jumas.getFlightNumber()}"></td>
+                                <td th:text="${jumas.getDepartureCity()}"></td>
+                                <td th:text="${jumas.getArrivalCity()}"></td>
+                                <td th:text="${jumas.getDateOfDeparture()}"></td>
+                                <td th:text="${jumas.getEstimatedDepartureTime()}"></td>
+                                <td th:text="${jumas.getPlaneClass()}"></td>
+                                <td> <a class="btn btn-primary" th:href="@{/selectFlight/{id}(id=${jumas.id})}" role="button">Select</a></td>
+
+
                             </tr>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-<!--    </div>-->
+
+
+
+<!--        <div class="container" >-->
+<!--            <div class="col-md-8  ">-->
+<!--                <h1>Search Result</h1>-->
+<!--                <div class="table-responsive">-->
+<!--                    <table class="table table-bordered table-hover table-striped">-->
+<!--                        <thead>-->
+<!--                            <tr>-->
+<!--                                <th>Flight Name</th>-->
+<!--                                <th>From</th>-->
+<!--                                <th>To</th>-->
+<!--                                <th>Departure Date</th>-->
+<!--                                <th>Departure Time</th>-->
+<!--                            </tr>-->
+<!--                        </thead>-->
+<!--                        <tbody>-->
+<!--                            -->
+<!--                            </tr>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
 
 
                     <footer class="container-fluid text-center">
