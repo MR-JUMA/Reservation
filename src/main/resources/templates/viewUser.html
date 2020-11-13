@@ -123,8 +123,8 @@
                                 <td th:text="${user.firstName} + ${user.middleName} + ${user.lastName}"></td>
                                 <td th:text="${user.email}"></td>
                                 <td th:text="${user.password}"></td>
-                                <td><a th:href="@{/editUser/{id}(id=${user.id})}"><i class="fa fa-edit"></i></a></td>
-                                <td> <a th:href="@{/deleteUser/{id}(id=${user.id})}"><i class="fa fa-trash"></i></i></a></td>
+                                <td><a th:href="@{/editUser/{id}(id=${user.id})}">Edit<i class="fa fa-edit"></i></a></td>
+                                <td> <a th:href="@{/deleteUser/{id}(id=${user.id})}">Delete<i class="fa fa-trash"></i></i></a></td>
 <!--                                <td th:text="${user.gender}"></td>-->
 
 

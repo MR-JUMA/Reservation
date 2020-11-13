@@ -10,6 +10,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Controller
@@ -39,10 +41,12 @@ public class DashboardController {
          modelMap.addAttribute("flights",flightRepository.count());
          modelMap.addAttribute("reserves",reservationRepository.count());
 
-        List<Flight> flightList=flightRepository.findAll();
+        List<Flight> flightList=flightRepository.findRecentFlights();
         modelMap.addAttribute("fx",flightList);
          return "admin";
     }
+
+
 
 //    @RequestMapping("/myFlights")
 //    public String seeAllFlights(Model model){
